@@ -37,3 +37,14 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+// Dismiss the welcome message
+document.getElementById('dismiss-btn').addEventListener('click', function() {
+    // Fade out the welcome message
+    document.getElementById('welcome-message').style.opacity = '0';
+    
+    // After the fade-out, hide the welcome message and show the main content
+    setTimeout(function() {
+        document.getElementById('welcome-message').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';  // Show the main content
+    }, 300); // Wait for the fade-out transition to finish (300ms)
+});
