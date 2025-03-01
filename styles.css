@@ -64,14 +64,15 @@ nav ul li a {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     color: #ff6347;
+    transform: translateY(-5px); /* Hover effect */
 }
 
-/* Sections */
+/* Section Styles */
 .section {
     padding: 60px 0;
     text-align: center;
@@ -88,6 +89,19 @@ h2 {
     margin-bottom: 20px;
     color: #333;
     text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6347; /* Accent line under heading */
 }
 
 p {
@@ -98,6 +112,11 @@ p {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #ff6347; /* Hover effect on text */
 }
 
 /* Form Styles */
@@ -105,12 +124,15 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
 }
 
 label {
     font-size: 1.1rem;
     margin: 10px 0 5px;
     color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 input, textarea {
@@ -121,12 +143,12 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 input:focus, textarea:focus {
     background-color: #eef;
-    border-color: #007bff;
+    border-color: #ff6347;
 }
 
 button {
@@ -136,11 +158,13 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: #ff6347;
+    transform: translateY(-5px); /* Button hover effect */
 }
 
 /* Footer Styles */
@@ -185,6 +209,7 @@ body.dark-mode button {
 
 body.dark-mode button:hover {
     background-color: #ff6347;
+    transform: translateY(-5px);
 }
 
 body.dark-mode footer {
@@ -243,4 +268,148 @@ body.dark-mode nav ul li a:hover {
     .project {
         margin: 20px 0;
     }
+}
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Welcome Message */
+#welcome-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000; /* Solid Black */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#welcome-message h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#welcome-message p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#welcome-message button {
+    padding: 15px 30px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#welcome-message button:hover {
+    background-color: #ff4500;
+}
+
+/* Main Content */
+#main-content {
+    display: none; /* Hide content initially */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+header .header-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 5px solid #fff;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+body.dark-mode header {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+body.dark-mode #welcome-message {
+    background-color: #000; /* Maintain black background */
+}
+
+body.dark-mode #welcome-message button {
+    background-color: #ff6347;
+}
+
+body.dark-mode .section {
+    background-color: rgba(30, 30, 30, 0.8);
 }
